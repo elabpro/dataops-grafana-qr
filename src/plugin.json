@@ -1,37 +1,38 @@
 {
-  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
-  "type": "panel",
-  "name": "dataops-grafana-qr",
-  "id": "lg-dataops-grafana-qr",
-  "info": {
-    "description": "Plugin for QR code generation",
-    "author": {
-      "name": "Eugene Arbatsky",
-      "url": "https://libertyglobal.com"
+    "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+    "type": "panel",
+    "name": "dataops-grafana-qr",
+    "id": "lg-dataops-grafana-qr",
+    "info": {
+        "description": "Plugin for QR code generation",
+        "author": {
+            "name": "Eugene Arbatsky",
+            "url": "https://libertyglobal.com"
+        },
+        "keywords": [
+            "QR"
+        ],
+        "logos": {
+            "small": "img/logo.svg",
+            "large": "img/logo.svg"
+        },
+        "links": [{
+                "name": "Website",
+                "url": "https://github.com/grafana/grafana-starter-panel"
+            },
+            {
+                "name": "License",
+                "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
+            }
+        ],
+        "screenshots": [],
+        "version": "0.1",
+        "updated": "2021.11.17"
     },
-    "keywords": [
-      "QR"
-    ],
-    "logos": {
-      "small": "img/logo.svg",
-      "large": "img/logo.svg"
-    },
-    "links": [
-      {
-        "name": "Website",
-        "url": "https://github.com/grafana/grafana-starter-panel"
-      },
-      {
-        "name": "License",
-        "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"
-      }
-    ],
-    "screenshots": [],
-    "version": "%VERSION%",
-    "updated": "%TODAY%"
-  },
-  "dependencies": {
-    "grafanaDependency": ">=7.0.0",
-    "plugins": []
-  }
+    "dependencies": {
+        "grafanaDependency": ">=7.0.0",
+        "qrcode": ">=1.4.4",
+        "react-cookie": ">=4.1.1",
+        "plugins": []
+    }
 }

@@ -20,5 +20,9 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "qrcode": "^1.4.4",
+    "react-cookie": "^4.1.1"
   }
 }
