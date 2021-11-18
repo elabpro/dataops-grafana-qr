@@ -3,21 +3,34 @@ import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory } from '@grafana/ui';
-import { useCookies } from 'react-cookie';
+import Cookies from 'js-cookie';
+import { getBackendSrv } from '@grafana/runtime';
 
 interface Props extends PanelProps<SimpleOptions> {}
+
+export interface UserSession {
+  id: number;
+  createdAt: string;
+  clientIp: string;
+  isActive: boolean;
+  seenAt: string;
+  browser: string;
+  browserVersion: string;
+  os: string;
+  osVersion: string;
+  device: string;
+}
 
 export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
   // const theme = useTheme();
   const styles = getStyles();
   var QRCode = require('qrcode');
   var message = 'test-messge';
-  const [cookies] = useCookies();
   var text = 'URL:' + window.location.host + '\nUSER:\nTOKEN:';
-  for (const c in cookies) {
-    const v = cookies[c];
-    text = text + v;
-  }
+
+  const user = getBackendSrv().get('/api/user/auth-tokens');
+
+  text = text + Cookies.get('grafana-testing-login') + Object.keys(user).length;
 
   QRCode.toDataURL(text, function(err: any, url: string) {
     message = url;

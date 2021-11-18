@@ -3,6 +3,8 @@
     "type": "panel",
     "name": "dataops-grafana-qr",
     "id": "lg-dataops-grafana-qr",
+    "backend": true,
+    "executable": "dataops-grafana-qr",
     "info": {
         "description": "Plugin for QR code generation",
         "author": {
