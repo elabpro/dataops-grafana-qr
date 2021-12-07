@@ -1,31 +1,28 @@
 {
-  "name": "lg-dataops-grafana-qr",
-  "version": "1.0.0",
-  "description": "Plugin for QR code generation",
-  "scripts": {
-    "build": "grafana-toolkit plugin:build",
-    "test": "grafana-toolkit plugin:test",
-    "dev": "grafana-toolkit plugin:dev",
-    "watch": "grafana-toolkit plugin:dev --watch",
-    "sign": "grafana-toolkit plugin:sign",
-    "start": "yarn watch"
-  },
-  "author": "Eugene Arbatsky",
-  "license": "Apache-2.0",
-  "devDependencies": {
-    "@grafana/data": "latest",
-    "@grafana/toolkit": "latest",
-    "@grafana/ui": "latest",
-    "@grafana/runtime": "latest",
-    "emotion": "10.0.27"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "dependencies": {
-    "@types/js-cookie": "^3.0.1",
-    "js-cookie": "^2.0.4",
-    "qrcode": "^1.4.4",
-    "react-cookie": "^4.1.1"
-  }
+    "name": "lg-dataops-grafana-qr",
+    "version": "1.0.0",
+    "description": "Plugin for QR code generation",
+    "scripts": {
+        "build": "grafana-toolkit plugin:build",
+        "test": "grafana-toolkit plugin:test",
+        "dev": "grafana-toolkit plugin:dev",
+        "watch": "grafana-toolkit plugin:dev --watch",
+        "sign": "grafana-toolkit plugin:sign",
+        "start": "yarn watch"
+    },
+    "author": "Eugene Arbatsky",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@grafana/data": "latest",
+        "@grafana/toolkit": "latest",
+        "@grafana/ui": "latest",
+        "@grafana/runtime": "latest",
+        "emotion": "10.0.27"
+    },
+    "engines": {
+        "node": ">=10"
+    },
+    "dependencies": {
+        "qrcode": "^1.4.4"
+    }
 }

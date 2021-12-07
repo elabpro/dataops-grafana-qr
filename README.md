@@ -1,8 +1,8 @@
-# Grafana Panel Plugin Template
+# Grafana QR code planel
 
 [![Build](https://github.com/grafana/grafana-starter-panel/workflows/CI/badge.svg)](https://github.com/grafana/grafana-starter-panel/actions?query=workflow%3A%22CI%22)
 
-This template is a starting point for building Grafana Panel Plugins in Grafana 7.0+
+QR code for Grafana Mobile Application
 
 ## What is Grafana Panel Plugin?
 

@@ -3,7 +3,6 @@ import { PanelProps } from '@grafana/data';
 import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory } from '@grafana/ui';
-import Cookies from 'js-cookie';
 import { getBackendSrv } from '@grafana/runtime';
 
 interface Props extends PanelProps<SimpleOptions> {}
@@ -22,20 +21,19 @@ export interface UserSession {
 }
 
 export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
-  // const theme = useTheme();
   const styles = getStyles();
-  var QRCode = require('qrcode');
-  var message = 'test-messge';
-  var text = 'URL:' + window.location.host + '\nUSER:\nTOKEN:';
+  var message = 'data:image/png;base64,';
 
-  const user = getBackendSrv().get('/api/user/auth-tokens');
-
-  text = text + Cookies.get('grafana-testing-login') + Object.keys(user).length;
-
-  QRCode.toDataURL(text, function(err: any, url: string) {
-    message = url;
-    // console.log(url);
-  });
+  getBackendSrv()
+    .get('/api/user/qr')
+    .then(value => {
+      message = 'data:image/png;base64, ' + value['data'];
+      console.log(message);
+      var obj = document.getElementById('qrcodeImg');
+      if (obj != null) {
+        obj.setAttribute('src', message);
+      }
+    });
 
   return (
     <div
@@ -48,8 +46,7 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
         `
       )}
     >
-      {text}
-      <img src={message} alt="QR Code" />
+      <img src={message} id="qrcodeImg" alt="QR Code" />
       <canvas
         id="qrcode"
         className={cx(
